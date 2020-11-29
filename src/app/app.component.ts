@@ -91,6 +91,6 @@ export class AppComponent implements OnInit {
     this.cardComments = this.displayList[this.listIndex].cards[
       this.cardIndex
     ].comments;
-    this.profileForm.reset();
+    this.profileForm.get("comment").setValue("");
   }
 }
