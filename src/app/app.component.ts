@@ -42,10 +42,8 @@ export class AppComponent implements OnInit {
     ev.preventDefault();
     const CI = ev.dataTransfer.getData('CI');
     const LI = ev.dataTransfer.getData('LI');
-    const cName = this.displayList[LI].cards[CI].cardName;
-    this.displayList[i].cards.push({
-      cardName: cName,
-    });
+    const card = this.displayList[LI].cards[CI];
+    this.displayList[i].cards.push(card);
     this.displayList[LI].cards.splice(CI, 1);
   }
   deleteList(index) {
