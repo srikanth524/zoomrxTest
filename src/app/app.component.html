@@ -1,0 +1,76 @@
+<div class="row background">
+  <div class="col-3" *ngFor="let item of displayList; let i = index">
+    <div class="card" (drop)="drop($event, i)" (dragover)="allowDrop($event)">
+      <div class="row">
+        <div class="col-4 title">
+          {{ item.list }}
+        </div>
+        <div class="right col-8">
+          <button class="delete-list" (click)="deleteList(i)">
+            Delete List
+          </button>
+        </div>
+      </div>
+      <div class="card" draggable="true" (dragstart)="drag($event, i, in)" (click)="editCard(i, in)"
+        *ngFor="let card of item.cards; let in = index" data-toggle="modal" data-target="#exampleModal">
+        <div class="title">
+          {{ card.cardName }}
+        </div>
+      </div>
+      <button class="add-new delete-list" (click)="addNewCard(i)" data-toggle="modal" data-target="#exampleModal">
+        Add new Card
+      </button>
+    </div>
+  </div>
+  <button class="add-new delete-list" (click)="addNewList()">
+    Add new LIst
+  </button>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-9">
+            <div class="form-group" [formGroup]="profileForm">
+              <label for="usr">card title:</label>
+              <input type="text" class="form-control" id="usr" formControlName="cardTitle"
+                placeholder="card description" />
+              <textarea class="form-control" rows="5" value="" id="comment" formControlName="comment"
+                placeholder="Add comment Here"></textarea>
+            </div>
+            <button class="add-new delete-list" type="submit" (click)="getComments()">
+              Add Comment
+            </button>
+          </div>
+          <div class="col-3">
+            <button class="delete-card" data-dismiss="modal" (click)="deleteCard()">
+              Delete Card
+            </button>
+          </div>
+        </div>
+        <table >
+          <tr *ngFor="let comments of cardComments">
+            <td>
+            {{
+              comments.comments
+            }}
+          </td>
+          <td>
+            {{date  | date}}
+          </td>
+          </tr>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="saveCardsDetails()" data-dismiss="modal">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

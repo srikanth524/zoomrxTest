@@ -1,0 +1,46 @@
+.card {
+    padding: 9px;
+    margin: 10px;
+    min-height: 100px;
+}
+.title {
+    font-size: 13px;
+    font-weight: 500;
+    display: inline-block;
+}
+button.delete-list {
+   
+    font-size: 13px;
+    background: #fff;
+    border: 1px solid #ced4da;
+    font-weight: 500;
+    float: right;
+ 
+}
+button.add-new.delete-list {
+    height: 29px;
+    margin-top: 10px;
+    border: 1px solid #ced4da;
+    font-weight: 500;
+    
+}
+.right{
+    float: right;
+}
+.background{
+    background-color: aliceblue;
+}
+label{
+    display: block;
+}
+textarea{
+    margin-top: 34px;
+}
+.delete-card {
+    font-weight: 500;
+    padding: 2px;
+    margin-top: 32px;
+    font-size: 13px;
+    background: #fff;
+    border: 1px solid #ced4da;
+}
