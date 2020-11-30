@@ -40,10 +40,11 @@
                 placeholder="card description" />
               <textarea class="form-control" rows="5" value="" id="comment" formControlName="comment"
                 placeholder="Add comment Here"></textarea>
+                <button class="comment-card"  type="submit" (click)="getComments()">
+                  Add Comment
+                </button>
             </div>
-            <button class="add-new delete-list" type="submit" (click)="getComments()">
-              Add Comment
-            </button>
+            
           </div>
           <div class="col-3">
             <button class="delete-card" data-dismiss="modal" (click)="deleteCard()">

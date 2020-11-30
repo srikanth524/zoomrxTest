@@ -83,12 +83,14 @@ export class AppComponent implements OnInit {
   }
   getComments() {
     let commentValue = this.profileForm.get('comment').value;
+    if(this.profileForm.get('comment').value){
     this.displayList[this.listIndex].cards[this.cardIndex].comments.push({
       comments: commentValue,
     });
     this.cardComments = this.displayList[this.listIndex].cards[
       this.cardIndex
     ].comments;
+  }
     this.profileForm.get("comment").setValue("");
   }
 }
